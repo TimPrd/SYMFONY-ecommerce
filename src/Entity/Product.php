@@ -52,6 +52,11 @@ class Product
      */
     private $dateAdd;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $stock;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +142,18 @@ class Product
     public function setDateAdd(\DateTimeInterface $dateAdd): self
     {
         $this->dateAdd = $dateAdd;
+
+        return $this;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
 
         return $this;
     }
