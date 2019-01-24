@@ -15,15 +15,16 @@ class ProductController extends AbstractController
     public function index($slug)
     {
         $repositoryP = $this->getDoctrine()->getRepository(Product::class);
-        $product = $repositoryP->findOneBy(['slug'=> $slug]);
+        $product     = $repositoryP->findOneBy([
+            'slug' => $slug
+        ]);
 
-        if (!$product instanceof Product){
-            return new NotFoundHttpException("Product not found");
+        if (!$product instanceof Product) {
+            throw new NotFoundHttpException('Product not found');
         }
 
-
         return $this->render('product/index.html.twig', [
-            'product' => $product,
+            'product' => $product
         ]);
     }
 }

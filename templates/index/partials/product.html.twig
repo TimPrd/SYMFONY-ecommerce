@@ -15,13 +15,13 @@
         </div>
 
         <div class="block2-txt p-t-20">
-            <a href="#" class="block2-name dis-block s-text3 p-b-5">
+            <a href="{{ path('product', {'slug': product.slug}) }}" class="block2-name dis-block s-text3 p-b-5">
                 {{ product.name }}
             </a>
 
             <span class="block2-price m-text6 p-r-5">
-                                    {{ product.price }}$
-                                </span>
+                {{ product.price }}€
+            </span>
         </div>
     </div>
 </div>

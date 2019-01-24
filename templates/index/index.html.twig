@@ -1,121 +1,123 @@
 {% extends 'base.html.twig' %}
-{% block title %} Home {% endblock %}
+
+{% block title %}Home{% endblock %}
 
 {% block body %}
-<!-- Slide1 -->
-<section class="slide1">
-    <div class="wrap-slick1">
-        <div class="slick1">
-            {% for collection in collections %}
-                {% include 'index/partials/slide.html.twig' %}
-            {% endfor %}
-        </div>
-    </div>
-</section>
 
-<!-- New Product -->
-<section class="newproduct bgwhite p-t-45 p-b-105">
-    <div class="container">
-        <div class="sec-title p-b-60">
-            <h3 class="m-text5 t-center">
-                Featured Products
-            </h3>
-        </div>
-
-        <!-- Slide2 -->
-        <div class="wrap-slick2">
-            <div class="slick2">
-
-                {% for product in products %}
-                    {% include 'product/index.html.twig' %}
+    <!-- Slide1 -->
+    <section class="slide1">
+        <div class="wrap-slick1">
+            <div class="slick1">
+                {% for collection in collections %}
+                    {% include 'index/partials/slide.html.twig' %}
                 {% endfor %}
-
             </div>
         </div>
+    </section>
 
-    </div>
-</section>
+    <!-- New Product -->
+    <section class="newproduct bgwhite p-t-45 p-b-105">
+        <div class="container">
+            <div class="sec-title p-b-60">
+                <h3 class="m-text5 t-center">
+                    Featured Products
+                </h3>
+            </div>
 
-<!-- Banner2 -->
-<section class="banner2 bg5 p-t-55 p-b-55">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
-                <div class="hov-img-zoom pos-relative">
-                    <img src="https://via.placeholder.com/720x539" alt="IMG-BANNER">
+            <!-- Slide2 -->
+            <div class="wrap-slick2">
+                <div class="slick2">
 
-                    <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+                    {% for product in products %}
+                        {% include 'index/partials/product.html.twig' %}
+                    {% endfor %}
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Banner2 -->
+    <section class="banner2 bg5 p-t-55 p-b-55">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+                    <div class="hov-img-zoom pos-relative">
+                        <img src="https://via.placeholder.com/720x539" alt="IMG-BANNER">
+
+                        <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
                         <span class="m-text9 p-t-45 fs-20-sm">
                             The Beauty
                         </span>
 
-                        <h3 class="l-text1 fs-35-sm">
-                            Lookbook
-                        </h3>
+                            <h3 class="l-text1 fs-35-sm">
+                                Lookbook
+                            </h3>
 
-                        <a href="#" class="s-text4 hov2 p-t-20 ">
-                            View Collection
-                        </a>
+                            <a href="#" class="s-text4 hov2 p-t-20 ">
+                                View Collection
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
-                <div class="hov-img-zoom pos-relative">
-                    <img src="https://via.placeholder.com/720x539" alt="IMG-BANNER">
+                <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+                    <div class="hov-img-zoom pos-relative">
+                        <img src="https://via.placeholder.com/720x539" alt="IMG-BANNER">
 
-                    <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+                        <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
                         <span class="m-text9 p-t-45 fs-20-sm">
                             The Beauty
                         </span>
 
-                        <h3 class="l-text1 fs-35-sm">
-                            Lookbook
-                        </h3>
+                            <h3 class="l-text1 fs-35-sm">
+                                Lookbook
+                            </h3>
 
-                        <a href="#" class="s-text4 hov2 p-t-20 ">
-                            View Collection
-                        </a>
+                            <a href="#" class="s-text4 hov2 p-t-20 ">
+                                View Collection
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Shipping -->
-<section class="shipping bgwhite p-t-62 p-b-46">
-    <div class="flex-w p-l-15 p-r-15">
-        <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
-            <h4 class="m-text12 t-center">
-                Free Delivery Worldwide
-            </h4>
+    <!-- Shipping -->
+    <section class="shipping bgwhite p-t-62 p-b-46">
+        <div class="flex-w p-l-15 p-r-15">
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+                <h4 class="m-text12 t-center">
+                    Free Delivery Worldwide
+                </h4>
 
-            <a href="#" class="s-text11 t-center">
-                Click here for more info
-            </a>
-        </div>
+                <a href="#" class="s-text11 t-center">
+                    Click here for more info
+                </a>
+            </div>
 
-        <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
-            <h4 class="m-text12 t-center">
-                30 Days Return
-            </h4>
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
+                <h4 class="m-text12 t-center">
+                    30 Days Return
+                </h4>
 
-            <span class="s-text11 t-center">
+                <span class="s-text11 t-center">
                 Simply return it within 30 days for an exchange.
             </span>
-        </div>
+            </div>
 
-        <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
-            <h4 class="m-text12 t-center">
-                Store Opening
-            </h4>
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+                <h4 class="m-text12 t-center">
+                    Store Opening
+                </h4>
 
-            <span class="s-text11 t-center">
+                <span class="s-text11 t-center">
                 Shop open from Monday to Sunday
             </span>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 {% endblock body %}
