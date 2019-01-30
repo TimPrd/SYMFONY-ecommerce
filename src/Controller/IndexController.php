@@ -19,7 +19,10 @@ class IndexController extends AbstractController
 
         $repositoryProduct = $this->getDoctrine()->getRepository(Product::class);
         $products = $repositoryProduct->findBy([], ['dateAdd' => 'DESC'], 8);
-        dump($collections);
+
+        $session = $this->get('session');
+        $session->set('collections', $collections);
+
         return $this->render('index/index.html.twig', ['collections' => $collections, 'products'=>$products]);
     }
 

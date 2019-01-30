@@ -1,20 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block body %}
-    <button id="add-to-cart">Add to cart</button>
+    <div>
+        <div class="alert alert-success" id="success-alert">
+            <strong>Added to cart 😁.</strong>
+        </div>
+        <img src="{{ product.pictureUrl }}" alt="{{ "Photo de " ~ product.name }}" style="width: 300px; height: auto;">
+        <p>{{ "Nom : " ~ product.name }}</p>
+        <p>{{ "Prix : " ~ product.price ~ "€" }}</p>
+        <button id="add-to-cart" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+            Add to Cart
+        </button>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('#add-to-cart').on('click', function(){
+        $(document).ready(function () {
+            $("#success-alert").hide();
+            $('#add-to-cart').on('click', function () {
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#success-alert").slideUp(500);
+                });
+
                 $.post("{{ path('add_cart_json') }}", {
                     product_id: {{ product.id }},
-                    quantity: 1
-                } );
+                    quantity: 1,
+                });
+
+                $.get("{{ path('cart_json') }}", function (data) {
+                    $('.header-icons-noti').html(data.newTotalProducts);
+                    $('.header-cart-total').html(data.newTotal + " €");
+                    $('.header-cart-wrapitem').append("" +
+                        "<li class='header-cart-item'>" +
+                        "<div class='header-cart-item-img'>" +
+                        "<img  src='" + data.addedProduct.pictureUrl + "' alt='IMG " + data.addedProduct.name + "'/>" +
+                        "</div>" +
+                        "<div class='header-cart-item-txt'>" +
+                        "<p>" + data.addedProduct.name + "</p>" +
+                        "<span class='header-cart-item-info'>1 x " + data.addedProduct.price + "€</span>" +
+                        "</div>" +
+                        "</li>");
+
+                });
             })
         })
+
     </script>
 {% endblock %}

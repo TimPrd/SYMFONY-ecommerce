@@ -42,45 +42,10 @@
     <section class="banner2 bg5 p-t-55 p-b-55">
         <div class="container">
             <div class="row">
-                <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
-                    <div class="hov-img-zoom pos-relative">
-                        <img src="https://via.placeholder.com/720x539" alt="IMG-BANNER">
+                {% for collection in collections %}
+                    {% include 'index/partials/collection.html.twig' %}
+                {% endfor %}
 
-                        <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
-                        <span class="m-text9 p-t-45 fs-20-sm">
-                            The Beauty
-                        </span>
-
-                            <h3 class="l-text1 fs-35-sm">
-                                Lookbook
-                            </h3>
-
-                            <a href="#" class="s-text4 hov2 p-t-20 ">
-                                View Collection
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
-                    <div class="hov-img-zoom pos-relative">
-                        <img src="https://via.placeholder.com/720x539" alt="IMG-BANNER">
-
-                        <div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
-                        <span class="m-text9 p-t-45 fs-20-sm">
-                            The Beauty
-                        </span>
-
-                            <h3 class="l-text1 fs-35-sm">
-                                Lookbook
-                            </h3>
-
-                            <a href="#" class="s-text4 hov2 p-t-20 ">
-                                View Collection
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -121,3 +86,5 @@
     </section>
 
 {% endblock body %}
+
+

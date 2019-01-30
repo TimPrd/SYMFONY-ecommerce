@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All collections!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% for collection in collections %}
+                {% include 'index/partials/collection.html.twig' %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+
+
+{% block body %}
+{{ form_start(addressForm) }}
+<div class="form-row">
+    <div class="col">
+        {{ form_row(addressForm.number) }}
+    </div>
+    <div class="col">
+        {{ form_row(addressForm.streetname) }}
+    </div>
+</div>
+<div class="form-row">
+    <div class="col">
+        {{ form_row(addressForm.zipcode) }}
+    </div>
+    <div class="col">
+        {{ form_row(addressForm.city) }}
+    </div>
+    <div class="col">
+        {{ form_row(addressForm.country) }}
+    </div>
+</div>
+<button class="btn">Save new address</button>
+{{ form_end(addressForm) }}
+{% endblock %}

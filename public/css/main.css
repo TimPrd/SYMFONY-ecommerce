@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------
-Project:  
-Version:  
-Last change:  
+Project:
+Version:
+Last change:
 Assigned to:  Le Xuan Bach
 Primary use:  Company
 -------------------------------------------------------------------*/
@@ -19,10 +19,10 @@ Primary use:  Company
 /*------------------------------------------------------------------
 [COLOR CODES]
 
-# Text Color      :  
-# Primary Color 01:  
-# Primary Color 02:   
-# Primary Color 03:  
+# Text Color      :
+# Primary Color 01:
+# Primary Color 02:
+# Primary Color 03:
 
 ------------------------------------------------------------------*/
 /*------------------------------------------------------------------
@@ -42,50 +42,50 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 @font-face {
   font-family: Montserrat-Regular;
-  src: url('../fonts/montserrat/Montserrat-Regular.ttf'); 
+  src: url('../fonts/montserrat/Montserrat-Regular.ttf');
 }
 
 @font-face {
   font-family: Montserrat-Medium;
-  src: url('../fonts/montserrat/Montserrat-Medium.ttf'); 
+  src: url('../fonts/montserrat/Montserrat-Medium.ttf');
 }
 
 @font-face {
   font-family: Montserrat-Bold;
-  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
 }
 
 @font-face {
   font-family: Montserrat-Italic;
-  src: url('../fonts/montserrat/Montserrat-Italic.ttf'); 
+  src: url('../fonts/montserrat/Montserrat-Italic.ttf');
 }
 
 @font-face {
   font-family: Montserrat-Black;
-  src: url('../fonts/montserrat/Montserrat-Black.ttf'); 
+  src: url('../fonts/montserrat/Montserrat-Black.ttf');
 }
 
 @font-face {
   font-family: Linearicons;
-  src: url('../fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.ttf'); 
+  src: url('../fonts/Linearicons-Free-v1.0.0/WebFont/Linearicons-Free.ttf');
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
   font-family: Poppins-Black;
-  src: url('../fonts/poppins/Poppins-Black.ttf'); 
+  src: url('../fonts/poppins/Poppins-Black.ttf');
 }
 
 /*[ RESTYLE TAG ]
 ///////////////////////////////////////////////////////////
 */
 * {
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0px;
+	padding: 0px;
 	box-sizing: border-box;
 }
 
@@ -138,14 +138,8 @@ ul, li {
 
 
 /* ------------------------------------ */
-input {
-	outline: none;
-	border: none !important;
-}
 
-textarea {
-  outline: none;
-}
+
 
 /* textarea:focus, input:focus {
   border-color: transparent !important;
@@ -530,7 +524,7 @@ iframe {
   -moz-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
   -webkit-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
   -o-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
-  -ms-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2); 
+  -ms-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
 }
 
 /*[ Top bar ]
@@ -660,8 +654,8 @@ iframe {
 .main_menu > li {
   display: block;
   position: relative;
-  padding-top: 20px;  
-  padding-bottom: 20px; 
+  padding-top: 20px;
+  padding-bottom: 20px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -719,9 +713,9 @@ li.sale-noti > a {
 .sub_menu li:hover > .sub_menu {
   visibility: visible;
   opacity: 1;
-} 
+}
 
-.sub_menu li { 
+.sub_menu li {
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -822,12 +816,12 @@ li.sale-noti > a {
   -webkit-box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.1);
   -o-box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.1);
   -ms-box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.1);
-  
+
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   -moz-transition: all 0.3s;
-  
+
   transform-origin: top right;
   -webkit-transform: scale(0);
   -moz-transform: scale(0);
@@ -877,7 +871,6 @@ li.sale-noti > a {
 }
 
 .header-cart-item-img::after {
-  content: '\e870';
   font-family: Linearicons;
   font-size: 16px;
   display: -webkit-box;
@@ -1031,7 +1024,7 @@ li.sale-noti > a {
 .header-icons-mobile .header-cart {
   width: 300px;
   top: 190%;
-  right: -80px;  
+  right: -80px;
   z-index: 1100;
   transform-origin: top right;
 }
@@ -1107,7 +1100,7 @@ li.sale-noti > a {
 
 .side-menu .sub-menu > li {
   padding-left: 12px;
-  padding-top: 
+  padding-top:
 }
 
 .side-menu .sub-menu a:hover {
@@ -1188,7 +1181,7 @@ li.sale-noti > a {
   -moz-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
   -webkit-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
   -o-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
-  -ms-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2); 
+  -ms-box-shadow: 0 1px 5px 0px rgba(0,0,0,0.2);
 }
 
 .fixed-header2 .header-cart {
@@ -1289,8 +1282,8 @@ li.sale-noti > a {
 }
 
 .container-menu-header-v3 .main_menu > li {
-  padding-top: 3px;  
-  padding-bottom: 3px; 
+  padding-top: 3px;
+  padding-bottom: 3px;
   padding-left: 0px;
   padding-right: 0px;
   text-align: center;
@@ -1306,7 +1299,7 @@ li.sale-noti > a {
   left: 95%;
 }
 
-.container-menu-header-v3 .sub_menu li { 
+.container-menu-header-v3 .sub_menu li {
   text-align: left;
 }
 
@@ -1334,7 +1327,7 @@ li.sale-noti > a {
 
   .container-menu-header-v3,
   .container-menu-header-v2,
-  .container-menu-header 
+  .container-menu-header
   {display: none;}
 
   .top-bar {display: none;}
@@ -1380,7 +1373,7 @@ li.sale-noti > a {
   position: absolute;
   background-color: black;
   opacity: 0;
-  
+
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -1638,7 +1631,7 @@ li.sale-noti > a {
 ///////////////////////////////////////////////////////////
 */
 .block2-labelsale::before,
-.block2-labelnew::before 
+.block2-labelnew::before
 {
   z-index: 100;
   font-family: Montserrat-Regular;
@@ -2262,7 +2255,7 @@ body {padding-right: 0px !important;}
 #modal-video-01 {
   background-color: rgba(0,0,0,0.8);
   z-index: 1350;
-  
+
 }
 
 #modal-video-01 .modal-dialog {
@@ -2343,7 +2336,11 @@ input.num-product {
 input.num-product::-webkit-outer-spin-button,
 input.num-product::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0; 
+    margin: 0;
 }
 
 
+
+input, label {
+    margin: 5px 5px;
+}

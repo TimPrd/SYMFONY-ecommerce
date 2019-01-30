@@ -1,0 +1,4 @@
+$.get( "user/{{ app.user.id }}/cart", function( data ) {
+        $( ".header-icons-noti" ).html( data );
+        console.log(data)
+    });

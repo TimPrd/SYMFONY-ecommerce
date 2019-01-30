@@ -24,6 +24,7 @@ security:
                 target: /
                 invalidate_session: true
 
+
             # activate different ways to authenticate
 
             # http_basic: true
@@ -36,4 +37,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/cart/checkout, roles: ROLE_USER }

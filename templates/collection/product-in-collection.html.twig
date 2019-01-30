@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    <div class="col-md-4 col-sm-6">
+        <a href="{{ path('product', {'slug': product.slug}) }}">
+            <img src="{{ product.pictureUrl }}" alt="{{ "Photo de " ~ product.name }}"
+                 style="width: 100px; height: auto;"/>
+            <p>{{ product.name ~ " (" ~ price_format(product.price) ~ ")" }}</p>
+        </a>
+        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+            Add to Cart
+        </button>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+
+
+    </script>
+{% endblock %}

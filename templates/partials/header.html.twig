@@ -18,11 +18,11 @@
                         </li>
 
                         <li>
-                            <a href="#">Collections</a>
+                            <a href="{{ path('all_collections') }}">Collections</a>
                             <ul class="sub_menu">
-                                <li><a href="#">Collection 1</a></li>
-                                <li><a href="#">Collection 2</a></li>
-                                <li><a href="#">Collection 3</a></li>
+                                {% for collection in app.session.get('collections') %}
+                                    <li><a href="{{ path('collection', {'slug': collection.slug}) }}">{{ collection.name }}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
 
@@ -35,9 +35,19 @@
 
             <!-- Header Icon -->
             <div class="header-icons">
-                <a href="#" class="header-wrapicon1 dis-block">
-                    <img src="{{ asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
-                </a>
+                {% if app.user%}
+                    <span style="margin-right: 25px;"> {{ app.user.fullname }} </span>
+                    <a href="{{ path('app_logout') }}" class="header-wrapicon1 dis-block">
+                        <img src="{{ asset('images/icons/icon-header-03.png') }}" class="header-icon1" alt="ICON">
+                    </a>
+                {% else %}
+                    <a style="margin-right: 25px;" href="{{ path('app_login') }}" class="header-wrapicon1 dis-block">
+                        <img src="{{ asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
+                    </a>
+                    <a href="{{ path('app_register') }}" class="header-wrapicon1 dis-block">
+                        <img src="{{ asset('images/icons/icon-header-04.png') }}" class="header-icon1" alt="ICON">
+                    </a>
+                {% endif %}
 
                 <span class="linedivide1"></span>
 

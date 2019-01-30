@@ -181,6 +181,15 @@
             swal(nameProduct, "is added to wishlist !", "success");
         });
     });
+
+    $(document).ready(function () {
+        $.get("{{ path('cart_json') }}", function(data){
+            $('.header-icons-noti').text(data.newTotalProducts);
+        });
+    })
+
+
+
 </script>
 
 <!--===============================================================================================-->

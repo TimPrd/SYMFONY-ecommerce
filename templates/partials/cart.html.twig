@@ -1,7 +1,7 @@
 <!-- Header cart noti -->
 <div class="header-cart header-dropdown">
     <ul class="header-cart-wrapitem">
-
+        {% if cart.cartProducts is defined %}
         {% for cartProduct in cart.cartProducts %}
             {% set product = cartProduct.product %}
             <li class="header-cart-item">
@@ -10,12 +10,18 @@
                 </div>
 
                 <div class="header-cart-item-txt">
-                    <a href="#" class="header-cart-item-name">
+                    <a href="{{ path('product', {'slug': product.slug}) }}" class="header-cart-item-name">
                         {{ product.name }}
                     </a>
 
+                    <form method="post" action="{{ path('cart_delete', {'pid': product.id, 'cid': cart.id})  }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                        <button class="btn">🗑 Delete</button>
+                    </form>
+
                     <span class="header-cart-item-info">
-                    {{ cartProduct.quantity  }} x {{ price_format(product.price) }}
+                    {{ cartProduct.quantity }} x {{ price_format(product.price) }}
                 </span>
                 </div>
             </li>
@@ -25,18 +31,20 @@
     <div class="header-cart-total">
         Total: {{ cart.total }}€
     </div>
+    {% endif %}
+
 
     <div class="header-cart-buttons">
         <div class="header-cart-wrapbtn">
             <!-- Button -->
-            <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+            <a href="{{ path('show_cart') }}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                 View Cart
             </a>
         </div>
 
         <div class="header-cart-wrapbtn">
             <!-- Button -->
-            <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+            <a href="{{ path('checkout_cart')  }}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                 Check Out
             </a>
         </div>
