@@ -20,7 +20,7 @@ Installation
 
 3bis. To view all the possible make commands: 
   
-  make
+ 	make
 
 4. Run server and go to http://localhost:8001/
 
