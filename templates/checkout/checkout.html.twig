@@ -5,24 +5,18 @@
 
 
 {% block body %}
-    <!-- How to display 2 same form (ex: billing/delivery) -->
-    <form class="form-inline">
-        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Address : </label>
-        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-            <option selected>Choose...</option>
-            {% for address in addressUser %}
-                <option value="{{ address.id }}">{{ address.fullAddress }}</option>
-            {% endfor %}
-        </select>
-        <button>Validate address</button>
-    </form>
-    <a href="{{ path('new_address') }}">Add a new address</a>
-    --> is login ?
-    --> form facturation
-    --> form livraison
-    --> CB
-    --> transform to commande
+    {{ form_start(addresselect) }}
+    {{ form_widget(addresselect) }}
 
-    --> Not logged, register or log in
+    <button>Validate address</button>
+
+    {{ form_end(addresselect) }}
+
+
+
+
+    <!-- How to display 2 same form (ex: billing/delivery) -->
+    <a href="{{ path('new_address') }}">Add a new address</a>
+
 
 {% endblock %}

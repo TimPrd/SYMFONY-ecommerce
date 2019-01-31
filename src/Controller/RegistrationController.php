@@ -23,6 +23,19 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user = new User();
+            $user->setEmail($form->get('email')->getData());
+            $user->setFirstname($form->get('firstname')->getData());
+            $user->setLastname($form->get('lastname')->getData());
+            $user->setRoles(['ROLE_USER']);
+            $password= $passwordEncoder->encodePassword($user, $form->get('plainPassword')->getData());
+            $user->setPassword($password);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+        }
 
 
         return $this->render('security/register.html.twig', [

@@ -19,7 +19,6 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('firstname')
             ->add('lastname')
-            ->add('address')
             ->add('email', EmailType::class, [
                 'mapped' => false,
                 'constraints' => [

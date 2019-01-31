@@ -8,7 +8,16 @@
     </head>
     <body class="animsition">
         {% include 'partials/header.html.twig' %}
-        {% block body %}{% endblock %}
+        {% if app.session.flashBag.has('success') %}
+            <div class="alert alert-success">
+                {% for msg in app.session.flashBag.get('success') %}
+                    {{ msg }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% block body %}
+
+        {% endblock %}
         {% include 'partials/footer.html.twig' %}
         {% block javascripts %}
             <script type="text/javascript">

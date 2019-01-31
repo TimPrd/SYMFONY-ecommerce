@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -54,11 +55,19 @@ class User implements UserInterface
     private $addresses;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Package", mappedBy="user")
+     */
+    private $packages;
+
+
+
+    /**
      * User constructor.
      */
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
+        $this->packages = new ArrayCollection();
     }
 
 
@@ -92,8 +101,6 @@ class User implements UserInterface
     }
 
 
-
-
     public function getId(): ?int
     {
         return $this->id;
@@ -118,12 +125,12 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
-    public function getFullName():string
+    public function getFullName(): string
     {
-        return (string) $this->getFirstname() . ' ' . $this->getLastname();
+        return (string)$this->getFirstname() . ' ' . $this->getLastname();
     }
 
     /**
@@ -150,7 +157,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     public function setPassword(string $password): self
@@ -159,7 +166,6 @@ class User implements UserInterface
 
         return $this;
     }
-
 
 
     /**
@@ -179,15 +185,8 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    /**
-     * @return Collection|Address[]
-     */
-    public function getAddresses(): Collection
-    {
-        return $this->addresses;
-    }
 
-    public function addAddress(Address $address): self
+    public function setAddress(Address $address)
     {
         if (!$this->addresses->contains($address)) {
             $this->addresses[] = $address;
@@ -209,4 +208,47 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+
+
+    /**
+     * @return Collection|Package[]
+     */
+    public function getPackages(): Collection
+    {
+        return $this->packages;
+    }
+
+    public function addPackage(Package $package): self
+    {
+        if (!$this->packages->contains($package)) {
+            $this->packages[] = $package;
+            $package->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePackage(Package $package): self
+    {
+        if ($this->packages->contains($package)) {
+            $this->packages->removeElement($package);
+            // set the owning side to null (unless already changed)
+            if ($package->getUser() === $this) {
+                $package->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

@@ -5,9 +5,10 @@ namespace App\Controller;
 use App\Entity\Address;
 use App\Entity\Cart;
 use App\Entity\CartProduct;
+use App\Entity\Package;
 use App\Entity\Product;
 use App\Entity\User;
-use App\Form\AddresseType;
+use App\Form\AddressChooserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -81,9 +82,18 @@ class CartController extends AbstractController
     }
 
 
+    public function paymentForm(Cart $cart, Address $address, Request $request)
+    {
+
+        $defaultData = ['message' => 'Type your message here'];
+
+
+        // ... render the form
+    }
+
 
     /**
-     * @Route("/cart/checkout", name="checkout_cart")
+     * @Route("/cart/checkout", name="checkout_cart", methods={"GET","POST"})
      */
     public function checkout(Request $request, SessionInterface $session, UserInterface $user)
     {
@@ -91,14 +101,36 @@ class CartController extends AbstractController
         $repositoryCart = $this->getDoctrine()->getRepository(Cart::class);
         $cart = $cartId ? $repositoryCart->find($cartId) : new Cart();
 
-
         $repositoryUser = $this->getDoctrine()->getRepository(User::class);
-        $user = $repositoryUser->findOneBy(['email'=>$user->getUsername()]);
+        $user = $repositoryUser->findOneBy(['email' => $user->getUsername()]);
 
+        $form = $this->createForm(AddressChooserType::class, $user);
+        $form->handleRequest($request);
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $selectedAddress = $form->get('addresses')->getData();
+
+            $command = new Package();
+
+            $command->setPrice($cart->getTotal());
+            $command->setAddress($selectedAddress);
+            $command->setCreationDate(new \DateTime());
+            $command->setUser($user);
+            $command->setCart($cart);
+            $command->setIsPaid(false);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($command);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('checkout_payment', array('cmd' => $command->getId()));
+        }
 
         return $this->render('checkout/checkout.html.twig', [
             'cart' => $cart,
-            'addressUser' => $user->getAddresses()
+            'addresselect' => $form->createView(),
         ]);
     }
 

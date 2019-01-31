@@ -3,9 +3,10 @@
 {% block title %}Hello CheckoutController!{% endblock %}
 
 {% block body %}
+
     {{ form_start(form) }}
     {{ form_widget(form) }}
-        <button class="btn">{{ button_label|default('Pay') }}</button>
+    <button class="btn">{{ button_label|default('Pay') }}</button>
     {{ form_end(form) }}
 
 {% endblock %}
