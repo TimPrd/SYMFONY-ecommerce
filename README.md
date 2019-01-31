@@ -1,3 +1,3 @@
 # IIM-SYMFONY-ecommerce
 
-![](https://thumbs.gfycat.com/ThickLonelyAmericanmarten-small.gif)
+![Gif](https://thumbs.gfycat.com/ColorfulFrailIndianpangolin-size_restricted.gif)
