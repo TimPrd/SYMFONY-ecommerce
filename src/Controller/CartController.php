@@ -82,14 +82,7 @@ class CartController extends AbstractController
     }
 
 
-    public function paymentForm(Cart $cart, Address $address, Request $request)
-    {
 
-        $defaultData = ['message' => 'Type your message here'];
-
-
-        // ... render the form
-    }
 
 
     /**

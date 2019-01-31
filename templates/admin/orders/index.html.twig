@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+    <h1>Product index</h1>
+
+    <table class="table text-center">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Client</th>
+            <th><a href="{{ path('order_orders', {'param': 'price'}) }}">Price (€)</a></th>
+            <th>Road number</th>
+            <th>Street name</th>
+            <th>Zipcode</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Cart</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>
+                    <a href="{{ path('view_orders_user', {'id': order.user.id}) }}">{{ order.user.fullName }}</a>
+
+                </td>
+                <td>{{ order.price }} €</td>
+
+                <td>{{ order.address.number }}</td>
+                <td>{{ order.address.streetname }}</td>
+                <td>{{ order.address.zipcode }}</td>
+                <td>
+                    <a href="{{ path('view_orders_city', {'city': order.address.city})}}">{{ order.address.city }}</a>
+
+                </td>
+                <td>{{ order.address.country }}</td>
+
+                <td>{{ order.cart.id }}</td>
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('product_new') }}">Create new</a>
+{% endblock %}

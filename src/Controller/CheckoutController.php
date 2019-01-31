@@ -10,6 +10,7 @@ use App\Form\PayementType;
 use App\Model\Card;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -20,7 +21,7 @@ class CheckoutController extends AbstractController
     /**
      * @Route("/payment/{cmd}", name="checkout_payment", methods={"GET","POST"})
      */
-    public function payment($cmd, Request $request)
+    public function payment($cmd, Request $request,SessionInterface $session)
     {
         $card = new Transaction();
         $form = $this->createForm(PayementType::class, $card);
@@ -35,6 +36,8 @@ class CheckoutController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($currentCmd);
             $entityManager->flush();
+            $session->remove('cart');
+
             $request->getSession()
                 ->getFlashBag()
                 ->add('success', 'Your order is on the road ! 🚚');
