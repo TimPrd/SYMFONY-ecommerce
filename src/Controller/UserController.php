@@ -17,6 +17,8 @@ use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 class UserController extends AbstractController
 {
     /**
+     * User page info (orders)
+     *
      * @Route("/user/{id}", name="me")
      */
     public function me($id,UserRepository $userRepository):Response
@@ -26,9 +28,8 @@ class UserController extends AbstractController
         $repositoryOrder = $this->getDoctrine()->getRepository(Package::class);
         $orders = $repositoryOrder->findBy(['user' => $user->getId()]);
 
-
         return $this->render('user/index.html.twig', [
             'orders' => $orders,
         ]);
-    }
+    } 
 }
