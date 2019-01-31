@@ -82,10 +82,9 @@ class CartController extends AbstractController
     }
 
 
-
-
-
     /**
+     * Checkout
+     *
      * @Route("/cart/checkout", name="checkout_cart", methods={"GET","POST"})
      */
     public function checkout(Request $request, SessionInterface $session, UserInterface $user)
@@ -106,12 +105,13 @@ class CartController extends AbstractController
             $selectedAddress = $form->get('addresses')->getData();
 
             $command = new Package();
-
+            
             $command->setPrice($cart->getTotal());
             $command->setAddress($selectedAddress);
             $command->setCreationDate(new \DateTime());
             $command->setUser($user);
             $command->setCart($cart);
+            //Find a better way. Pass address value to the next form
             $command->setIsPaid(false);
 
             $entityManager = $this->getDoctrine()->getManager();
